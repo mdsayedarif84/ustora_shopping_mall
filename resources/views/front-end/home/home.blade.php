@@ -9,7 +9,7 @@
             <div class="block-slider block-slider4">
                 <ul class="" id="bxslider-home4">
                     <li>
-                        <img src="{!! asset('/') !!}/front-end/img/h4-slide.png" alt="Slide">
+                        <img src="{!! asset('/') !!}/product-image/img/Apache X21.jpg" alt="Slide">
                         <div class="caption-group">
                             <h2 class="caption title">
                                 iPhone <span class="primary">6 <strong>Plus</strong></span>

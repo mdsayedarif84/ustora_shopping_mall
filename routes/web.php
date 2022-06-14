@@ -43,7 +43,18 @@
         [ App\Http\controllers\CheckoutController::class,'customerSignUP'] )->name('customer-sign-up');
 
 
-    //admin-controller - Category
+    //admin-controller 
+    Route::get('add-slider',
+        [ App\Http\controllers\SliderController::class,'index'] )->name('add-slider');
+    Route::post('store-slider',
+        [ App\Http\controllers\SliderController::class,'store'] )->name('store-slider');
+    Route::get('manage-slider',
+        [ App\Http\controllers\SliderController::class,'manageSlider'] )->name('manage-slider');
+    Route::get('/edit-slider/{id}',
+        [ App\Http\controllers\SliderController::class,'editSlider'] )->name('edit-slider');
+
+
+    //- Category
     Route::get('/category/add-category',
         [ App\Http\controllers\AdminCategoryController::class,'addCategory'] )->name('add-category');
     Route::post('/save/new-category',

@@ -104,6 +104,27 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
+                        <p>Slider<i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{!! route('add-slider') !!}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Slider</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{!! route('manage-slider') !!}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
                         <p>Manage Order<i class="right fas fa-angle-left"></i>
                         </p>
                     </a>

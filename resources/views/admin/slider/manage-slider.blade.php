@@ -45,7 +45,7 @@
                             <td>{{ $sliderImage->description }}</td>
                             <td>{{ $sliderImage->link }}</td>
                             <td>
-                                <img src="{{ asset('uploads/slider/'.$sliderImage->image) }}" alt="fs" style="height: 80px; width: 200px"/>
+                                <img src="{{ asset('uploads/'.$sliderImage->image) }}" alt="fs" style="height: 150px; width: 250px"/>
                             </td>
                             <td>{{ $sliderImage->link_name }}</td>
                             <td>{{ $sliderImage->status == 1 ? 'published' : 'Unpublished' }}</td>

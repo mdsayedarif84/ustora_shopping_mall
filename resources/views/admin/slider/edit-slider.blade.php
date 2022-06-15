@@ -19,7 +19,8 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route'=>'store-slider','name'=>'editSliderForm', 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
+                        {!! Form::open(['route'=>'update-slider','name'=>'editSliderForm', 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
+                       @method('PUT')
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <div class="form-group row">
@@ -95,7 +96,7 @@
                                 <div class="col-sm-4"></div>
                                 <div class="col-sm-4">
                                     <button type="submit" class="btn btn-outline-danger btn-block font-weight-bolder">
-                                        <i class="fas fa-save" aria-hidden="true"></i> Save Slider Image
+                                        <i class="fas fa-save" aria-hidden="true"></i> Update Slider Image
                                     </button>
                                 </div>
                                 <div class="col-sm-4"></div>

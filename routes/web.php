@@ -52,6 +52,8 @@
         [ App\Http\controllers\SliderController::class,'manageSlider'] )->name('manage-slider');
     Route::get('/edit-slider/{id}',
         [ App\Http\controllers\SliderController::class,'editSlider'] )->name('edit-slider');
+    Route::put('/update-slider',
+        [ App\Http\controllers\SliderController::class,'updateSlider'] )->name('update-slider');
 
 
     //- Category

@@ -20,7 +20,6 @@
                     </div>
                     <div class="card-body">
                         {!! Form::open(['route'=>'update-slider','name'=>'editSliderForm', 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
-                       @method('PUT')
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <div class="form-group row">
@@ -87,7 +86,7 @@
                                 </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <div class="form-group row">
-                                        <img src="{{ asset('uploads/slider/'.$sliderImage->image) }}" alt="fs" style="height: 100px; width: 200px"/>
+                                        <img src="{{ asset($sliderImage->image) }}" alt="fs" style="height: 100px; width: 200px"/>
                                     </div>
                                 </div>
                             </div>

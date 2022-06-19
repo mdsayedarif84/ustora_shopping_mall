@@ -45,7 +45,7 @@
                             <td>{{ $sliderImage->description }}</td>
                             <td>{{ $sliderImage->link }}</td>
                             <td>
-                                <img src="{{ asset('uploads/'.$sliderImage->image) }}" alt="fs" style="height: 150px; width: 250px"/>
+                                <img src="{{ asset($sliderImage->image) }}" alt="fs" style="height: 50px; width: 100px"/>
                             </td>
                             <td>{{ $sliderImage->link_name }}</td>
                             <td>{{ $sliderImage->status == 1 ? 'published' : 'Unpublished' }}</td>
@@ -54,11 +54,11 @@
                                     <span class=" fa fa-eye fa-sm"></span>
                                 </a>
                                 @if($sliderImage->status == 1)
-                                    <a href="" class="btn btn-info btn-sm"  title="Published">
+                                    <a href="{{ route('inactive-slider',['id'=>$sliderImage->id]) }}" class="btn btn-info btn-sm"  title="Published">
                                         <span class=" fas fa-arrow-up fa-sm"></span>
                                     </a>
                                 @else
-                                    <a href=""  class="btn btn-warning btn-sm" title="UnPublished">
+                                    <a href="{{ route('active-slider',['id'=>$sliderImage->id]) }}"  class="btn btn-warning btn-sm" title="UnPublished">
                                         <span class=" fas fa-arrow-down fa-sm"></span>
                                     </a>
                                 @endif

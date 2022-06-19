@@ -19,7 +19,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(['route'=>'store-slider','', 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
+                        {!! Form::open(['route'=>'save-product','', 'method'=>'POST','enctype'=>'multipart/form-data']) !!}
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <div class="form-group row">

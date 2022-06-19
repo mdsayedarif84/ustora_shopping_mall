@@ -4,17 +4,25 @@
 
     use App\Models\Brand;
     use App\Models\Category;
+    use App\Models\Slider;
     use App\Models\Product;
     use Illuminate\Http\Request;
 
     class UstoraHomeController extends Controller
     {
         public function index(){
-            $newProducts        =   Product::where('publication_status',1)
-                                                ->orderBy('id','DESC')
-                                                ->take(9)
-                                                ->get();
-           return view('front-end.home.home',['newProducts'    =>  $newProducts,]);
+            $newProducts    =   Product::where('publication_status',1)
+                                        ->orderBy('id','DESC')
+                                        ->take(9)
+                                        ->get();
+            $sliders        =   Slider::where('status',1)
+                                        ->orderBy('id','DESC')
+                                        ->take(4)
+                                        ->get();
+
+           return view('front-end.home.home',[
+               'newProducts'    =>  $newProducts,
+               'sliders'        =>  $sliders]);
         }
         //for header-menu
         public function categoryProduct($id){

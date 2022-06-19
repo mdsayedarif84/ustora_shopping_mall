@@ -2,16 +2,7 @@
 
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers;
-    /*
-    |--------------------------------------------------------------------------
-    | Web Routes
-    |--------------------------------------------------------------------------
-    |
-    | Here is where you can register web routes for your application. These
-    | routes are loaded by the RouteServiceProvider within a group which
-    | contains the "web" middleware group. Now create something great!
-    |
-    */
+   
     //front-end controller
     Route::get('/', [
         'uses'=> 'App\Http\Controllers\UstoraHomeController@index',
@@ -23,8 +14,7 @@
         [ App\Http\controllers\UstoraHomeController::class,'brandProduct'] )->name('brand-product');
     Route::get('/product-details/{id}/{name}', [
         'uses'=> 'App\Http\Controllers\UstoraHomeController@productDetails',
-        'as'=> 'product-details'
-    ]);
+        'as'=> 'product-details']);
 
     //cart
     Route::post('/cart/add',
@@ -44,6 +34,7 @@
 
 
     //admin-controller 
+
     Route::get('add-slider',
         [ App\Http\controllers\SliderController::class,'index'] )->name('add-slider');
     Route::post('store-slider',
@@ -52,7 +43,11 @@
         [ App\Http\controllers\SliderController::class,'manageSlider'] )->name('manage-slider');
     Route::get('/edit-slider/{id}',
         [ App\Http\controllers\SliderController::class,'editSlider'] )->name('edit-slider');
-    Route::put('/update-slider',
+    Route::get('/slider/inactive/{id}',
+        [ App\Http\controllers\SliderController::class,'inactiveSlider'] )->name('inactive-slider');
+    Route::get('/slider/active/{id}',
+        [ App\Http\controllers\SliderController::class,'activeSlider'] )->name('active-slider');
+    Route::post('/update-slider',
         [ App\Http\controllers\SliderController::class,'updateSlider'] )->name('update-slider');
 
 

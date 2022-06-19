@@ -79,9 +79,9 @@ class AdminProductController extends Controller
         return redirect('/product/manage')->with('message', 'Product info Delete Successfully');
     }
     public function editProduct($id){
-        $product           =   Product::find($id);
-        $category         =   Category::where('publication_status',1)->get();
-        $brand             =   Brand::where('publication_status',1)->get();
+        $product    =   Product::find($id);
+        $category   =  Category::where('publication_status',1)->get();
+        $brand      =   Brand::where('publication_status',1)->get();
         return view('admin.product.edit-product',
             ['product' => $product,
             'category'=>$category,

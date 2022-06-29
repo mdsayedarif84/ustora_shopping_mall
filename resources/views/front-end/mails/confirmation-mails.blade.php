@@ -3,6 +3,7 @@
     Thanks for join us our community.---- <br>
     Your email address is: {!! $email !!} <br>
     Your Mobile Number is: {!! $phone_number !!} <br>
+    Your Product Details
 
     Thanks By == <br>
         U-stora Shopping Mall.

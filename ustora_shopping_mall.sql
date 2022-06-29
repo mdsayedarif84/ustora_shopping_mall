@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2021 at 02:35 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jun 29, 2022 at 04:07 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,8 @@ INSERT INTO `brands` (`id`, `brand_name`, `brand_description`, `publication_stat
 (12, 'Apache', 'update brand', 1, '2021-12-11 23:46:31', '2021-12-11 23:46:31'),
 (13, 'Hero', 'Very comportable bike', 0, '2021-12-11 23:48:31', '2021-12-13 06:13:52'),
 (14, 'Toyota', 'GENESIS IMPRESSES WITH SLEEKER', 1, '2021-12-12 00:04:57', '2021-12-12 00:04:57'),
-(15, 'Easy', 'famous brand', 1, '2021-12-12 02:01:05', '2021-12-12 02:01:05');
+(15, 'Easy', 'famous brand', 1, '2021-12-12 02:01:05', '2021-12-12 02:01:05'),
+(16, 'NIKON', 'NIKON CORPORATION, NIKON D5300', 1, '2022-06-13 01:29:49', '2022-06-13 01:29:49');
 
 -- --------------------------------------------------------
 
@@ -106,9 +107,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'karim', 'Rahim', 'super84@yahoo.com', '$2y$10$kpYqUa1Q/lP9th6xDv//g.v4EcPiwVW582RLLBmrEDWewE5pqqzwq', '01285749698', 'noakhlai', '2021-12-15 09:15:45', '2021-12-15 09:15:45'),
-(2, 'Robi', 'Hasan', 'ustora_shopping_mall@gmail.com', '$2y$10$ovPAswrMum0OGs6c.eFMnuV6OwDIifIjdS7d89L5DfcG3MZppWwPm', '0845711468', 'Cumilla', '2021-12-15 09:37:59', '2021-12-15 09:37:59'),
-(5, 'karim', 'Rahim', 'choic_online84@gmail.com', '$2y$10$RyFRw5qUoGdgr3hkLshfr.KhXVf2WPb/nVvov4mwWD9BblrIAK55S', '56389688', 'noakhlai', '2021-12-19 22:59:08', '2021-12-19 22:59:08');
+(23, 'Araf', 'Islam Fabin', 'asulymoon84@gmail.com', '$2y$10$L4InHCXIuRO1yxkCBM1jZOnmQBsZngLRaHLolHEW5kFZayObjFs.O', '65456456', 'Noakhali', '2022-06-23 22:51:09', '2022-06-23 22:51:09'),
+(24, 'Araf', 'Islam Fabin', 'ustora84@gmail.com', '$2y$10$7463YHBKd7Z7noggn6OauuRjzadoJKxvLXS8A6mBKcgbmtsdT2HdG', '456345', 'Noakhali', '2022-06-28 20:02:53', '2022-06-28 20:02:53');
 
 -- --------------------------------------------------------
 
@@ -150,7 +150,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2021_12_05_043639_create_categories_table', 2),
 (6, '2021_12_05_144658_create_brands_table', 3),
 (7, '2021_12_09_021115_create_products_table', 4),
-(8, '2021_12_14_121605_create_customers_table', 5);
+(8, '2021_12_14_121605_create_customers_table', 5),
+(9, '2022_06_13_141350_create_sliders_table', 6);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,40 @@ INSERT INTO `products` (`id`, `category_id`, `brand_id`, `product_name`, `produc
 (9, 3, 14, 'vector', 530000.000, 523, 'vector, wallpaper, modern, car, cars, vehicle, cool', '<h1>vector, wallpaper, modern, car, cars, vehicle, cool</h1>\r\n\r\n<p><a href=\"http://www.desktopwallpaperhd.net/view/vector-wallpaper-modern-car-cars-vehicle-cool-143245.html\" target=\"_blank\"><img alt=\"\" src=\"http://www.desktopwallpaperhd.net/thumbs/14/d/vector-wallpaper-modern-car-cars-vehicle-cool-143245.jpg\" /></a></p>\r\n\r\n<p>vector wallpaper modern car cars vehicle cool</p>\r\n\r\n<p>1920 x 1200, 114kb</p>\r\n\r\n<p>Tags:&nbsp;<a href=\"http://www.desktopwallpaperhd.net/tag/vector.html\">vector</a>&nbsp;wallpaper&nbsp;<a href=\"http://www.desktopwallpaperhd.net/tag/modern.html\">modern</a>&nbsp;<a href=\"http://www.desktopwallpaperhd.net/tag/car.html\">car</a>&nbsp;cars&nbsp;<a href=\"http://www.desktopwallpaperhd.net/tag/vehicle.html\">vehicle</a>&nbsp;<a href=\"http://www.desktopwallpaperhd.net/tag/cool.html\">cool</a></p>\r\n\r\n<p>Image:&nbsp;<a href=\"http://www.desktopwallpaperhd.net/wallpapers/14/d/vector-wallpaper-modern-car-cars-vehicle-cool-143245.jpg\">Vector Wallpaper Modern Car Cars Vehicle Cool</a></p>\r\n\r\n<p>Category:&nbsp;<a href=\"http://www.desktopwallpaperhd.net/vector-hd-wallpapers.html\">Vector</a><br />\r\n<small>Image type:&nbsp;JPG</small></p>\r\n\r\n<p><a href=\"http://www.desktopwallpaperhd.net/view/vector-wallpaper-modern-car-cars-vehicle-cool-143245.html\" target=\"_blank\">Download</a></p>\r\n\r\n<p>PC: To set the image as wallpaper, click on image. After that right click on big image and choose &#39;Set as</p>', 'product-image/vector.jpg', 1, '2021-12-12 01:55:41', '2021-12-12 01:55:41'),
 (10, 7, 15, 'CoupleT-shirt', 1000.000, 523, 'Add a new t-shirt collection.Briar Standard Semi Cotton Couple T-ShirtsOnly at Rs.660/-Best PriceFree Shipping\r\nDownload App:https://play.google.com/store/apps/details?id=com.shopping.store.zebtek', '<h1>Couple T-Shirts</h1>\r\n\r\n<p>₹ 660/&nbsp;pair&nbsp;Get Latest Price</p>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>Minimum Order Quantity</td>\r\n			<td>1 pair</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Add a new t-shirt collection.Briar Standard Semi Cotton Couple T-ShirtsOnly at Rs.660/-Best PriceFree Shipping<br />\r\nDownload App:https://play.google.com/store/apps/details id=com.shopping.store.zebtek</p>\r\n\r\n<p>View Complete Details</p>', 'product-image/CoupleT-shirt.jpeg', 1, '2021-12-12 02:04:14', '2021-12-12 02:04:14'),
 (11, 4, 11, 'Apple', 60000.000, 530, 'A desktop computer is a computer that fits on or under a desk. They utilize peripheral devices for interaction, such as a keyboard and mouse for input, and display devices like a monitor, projector, or television. Desktop computers can have a horizontal or vertical (tower) form factor, or be combined with a monitor to create an All-in-One computer. Unlike a laptop, which is portable, desktop computers are generally made to stay at one location.', '<h2><img alt=\"Desktop computer.\" src=\"https://www.computerhope.com/jargon/d/desktop-computer.jpg\" style=\"height:263px; width:350px\" /></h2>\r\n\r\n<p>A&nbsp;<strong>desktop computer</strong>&nbsp;is a&nbsp;<a href=\"https://www.computerhope.com/jargon/c/computer.htm\">computer</a>&nbsp;that fits on or under a</p>\r\n\r\n<h2>Desktop computer overview</h2>\r\n\r\n<p>Below is a picture of the main parts (<a href=\"https://www.computerhope.com/jargon/c/component.htm\">components</a>) that help make up a computer. In the picture, you can see a desktop computer,&nbsp;<a href=\"https://www.computerhope.com/jargon/f/fpdispla.htm\">flat-panel display</a>,&nbsp;<a href=\"https://www.computerhope.com/jargon/s/speaker.htm\">speakers</a>,&nbsp;<a href=\"https://www.computerhope.com/jargon/k/keyboard.htm\">keyboard</a>, and&nbsp;<a href=\"https://www.computerhope.com/jargon/m/mouse.htm\">mouse</a>. We&#39;ve also labeled each of the&nbsp;<a href=\"https://www.computerhope.com/jargon/i/inputdev.htm\">input devices</a>&nbsp;and&nbsp;<a href=\"https://www.computerhope.com/jargon/o/outputde.htm\">output devices</a>.</p>\r\n\r\n<p><img alt=\"Desktop computer\" src=\"https://www.computerhope.com/cdn/big/computer.jpg\" style=\"height:560px; width:686px\" /></p>\r\n\r\n<ul>\r\n	<li><a href=\"https://www.computerhope.com/issues/ch000997.htm\">What does the inside of a computer look like?</a></li>\r\n</ul>\r\n\r\n<h2>When did the first desktops appear?</h2>\r\n\r\n<p>The first desktop computer was the&nbsp;<a href=\"https://www.computerhope.com/comp/hp.htm\">Hewlett Packard</a>&nbsp;9100A, introduced in&nbsp;<a href=\"https://www.computerhope.com/history/1968.htm\">1968</a>. Since then, there were many millions of desktop computers released and used throughout the world.</p>\r\n\r\n<p>Note</p>\r\n\r\n<p>There is not a specific person who is responsible for creating the desktop computers we use today. Over their evolution, many individuals and companies have made significant contributions. For a complete history of computers, see:&nbsp;<a href=\"https://www.computerhope.com/issues/ch000984.htm\">When was the first computer invented?</a></p>', 'product-image/Apple.jpg', 1, '2021-12-12 02:11:07', '2021-12-12 02:11:07'),
-(12, 4, 10, 'dell', 45000.000, 85, 'Origins\r\n\r\nApple II computer\r\nPrior to the widespread use of microprocessors, a computer that could fit on a desk was considered remarkably small; the type of computers most commonly used were minicomputers, which were extremely large. Early computers took up the space of a whole room. Minicomputers generally fit into one or a few refrigerator-sized racks.', '<p>&nbsp;</p>\r\n\r\n<p>A&nbsp;<strong>desktop computer</strong>&nbsp;is a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Personal_computer\">personal computer</a>&nbsp;designed for regular use at a single location on or near a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Desk\">desk</a>&nbsp;due to its size and power requirements. The most common configuration has a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_case\">case</a>&nbsp;that houses the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Power_supply_unit_(computer)\">power supply</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Motherboard\">motherboard</a>&nbsp;(a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Printed_circuit_board\">printed circuit board</a>&nbsp;with a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Microprocessor\">microprocessor</a>&nbsp;as the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Central_processing_unit\">central processing unit</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_memory\">memory</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Bus_(computing)\">bus</a>, certain&nbsp;<a href=\"https://en.wikipedia.org/wiki/Peripherals\">peripherals</a>&nbsp;and other electronic components),&nbsp;<a href=\"https://en.wikipedia.org/wiki/Disk_storage\">disk storage</a>&nbsp;(usually one or more&nbsp;<a href=\"https://en.wikipedia.org/wiki/Hard_disk_drive\">hard disk drives</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Solid_state_drive\">solid state drives</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Optical_disc_drive\">optical disc drives</a>, and in early models a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Floppy_disk_drive\">floppy disk drive</a>); a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_keyboard\">keyboard</a>&nbsp;and&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_mouse\">mouse</a>&nbsp;for&nbsp;<a href=\"https://en.wikipedia.org/wiki/Input_(computer_science)\">input</a>; and a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_monitor\">computer monitor</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_speakers\">speakers</a>, and, often, a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Printer_(computing)\">printer</a>&nbsp;for output. The case may be oriented&nbsp;<a href=\"https://en.wikipedia.org/wiki/Horizontal_and_vertical\">horizontally or vertically</a>&nbsp;and placed either underneath, beside, or on top of a desk.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/Desktop_computer#mw-head\">Jump to navigation</a><a href=\"https://en.wikipedia.org/wiki/Desktop_computer#searchInput\">Jump to search</a></p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/File:Computer_lab_showing_desktop_PCs_warwick.jpg\"><img alt=\"\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Computer_lab_showing_desktop_PCs_warwick.jpg/220px-Computer_lab_showing_desktop_PCs_warwick.jpg\" style=\"height:155px; width:220px\" /></a></p>\r\n\r\n<p>A computer lab with desktop PCs with flat-panel monitors</p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/File:Desktop_computer_clipart_-_Yellow_theme.svg\"><img alt=\"\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Desktop_computer_clipart_-_Yellow_theme.svg/220px-Desktop_computer_clipart_-_Yellow_theme.svg.png\" style=\"height:159px; width:220px\" /></a></p>', 'product-image/dell.jpg', 1, '2021-12-12 02:15:12', '2021-12-12 02:15:12');
+(12, 4, 10, 'dell', 45000.000, 85, 'Origins\r\n\r\nApple II computer\r\nPrior to the widespread use of microprocessors, a computer that could fit on a desk was considered remarkably small; the type of computers most commonly used were minicomputers, which were extremely large. Early computers took up the space of a whole room. Minicomputers generally fit into one or a few refrigerator-sized racks.', '<p>&nbsp;</p>\r\n\r\n<p>A&nbsp;<strong>desktop computer</strong>&nbsp;is a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Personal_computer\">personal computer</a>&nbsp;designed for regular use at a single location on or near a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Desk\">desk</a>&nbsp;due to its size and power requirements. The most common configuration has a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_case\">case</a>&nbsp;that houses the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Power_supply_unit_(computer)\">power supply</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Motherboard\">motherboard</a>&nbsp;(a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Printed_circuit_board\">printed circuit board</a>&nbsp;with a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Microprocessor\">microprocessor</a>&nbsp;as the&nbsp;<a href=\"https://en.wikipedia.org/wiki/Central_processing_unit\">central processing unit</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_memory\">memory</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Bus_(computing)\">bus</a>, certain&nbsp;<a href=\"https://en.wikipedia.org/wiki/Peripherals\">peripherals</a>&nbsp;and other electronic components),&nbsp;<a href=\"https://en.wikipedia.org/wiki/Disk_storage\">disk storage</a>&nbsp;(usually one or more&nbsp;<a href=\"https://en.wikipedia.org/wiki/Hard_disk_drive\">hard disk drives</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Solid_state_drive\">solid state drives</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Optical_disc_drive\">optical disc drives</a>, and in early models a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Floppy_disk_drive\">floppy disk drive</a>); a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_keyboard\">keyboard</a>&nbsp;and&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_mouse\">mouse</a>&nbsp;for&nbsp;<a href=\"https://en.wikipedia.org/wiki/Input_(computer_science)\">input</a>; and a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_monitor\">computer monitor</a>,&nbsp;<a href=\"https://en.wikipedia.org/wiki/Computer_speakers\">speakers</a>, and, often, a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Printer_(computing)\">printer</a>&nbsp;for output. The case may be oriented&nbsp;<a href=\"https://en.wikipedia.org/wiki/Horizontal_and_vertical\">horizontally or vertically</a>&nbsp;and placed either underneath, beside, or on top of a desk.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/Desktop_computer#mw-head\">Jump to navigation</a><a href=\"https://en.wikipedia.org/wiki/Desktop_computer#searchInput\">Jump to search</a></p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/File:Computer_lab_showing_desktop_PCs_warwick.jpg\"><img alt=\"\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Computer_lab_showing_desktop_PCs_warwick.jpg/220px-Computer_lab_showing_desktop_PCs_warwick.jpg\" style=\"height:155px; width:220px\" /></a></p>\r\n\r\n<p>A computer lab with desktop PCs with flat-panel monitors</p>\r\n\r\n<p><a href=\"https://en.wikipedia.org/wiki/File:Desktop_computer_clipart_-_Yellow_theme.svg\"><img alt=\"\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Desktop_computer_clipart_-_Yellow_theme.svg/220px-Desktop_computer_clipart_-_Yellow_theme.svg.png\" style=\"height:159px; width:220px\" /></a></p>', 'product-image/dell.jpg', 1, '2021-12-12 02:15:12', '2021-12-12 02:15:12'),
+(13, 6, 14, 'Ducati motorcycles', 300.000, 300, '“I was trying to understand what quality really means, in a physical and personal way—and how it correlates to advancements in technology,” says Jay. “That’s not exclusive to electric vehicles by any means, but it’s why I felt so strongly about using electric power.” (Source: Bikeexif)', '<p><img alt=\"\" src=\"https://www.financialexpress.com/wp-content/uploads/2019/11/haas-custom-electric-motorcycle-baresteel-stingray-main.jpg\" style=\"height:440px; width:660px\" /></p>\r\n\r\n<p>1/6</p>\r\n\r\n<p>A beautifully crafted body can make a massive difference. Take, for example, Ducati motorcycles &ndash; even if you are a Kawasaki or Honda or Aprillia fan, you&#39;d still agree that Ducati does build some very gorgeous looking motorcycles. Custom motorcycles open a range of avenues for the builder as to what the end result should look like and Canadian builder Jay Donovan of Baresteel Design has clearly made use of all he could for the Stingray. (Source: Bikeexif)</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.financialexpress.com/wp-content/uploads/2019/11/haas-custom-electric-motorcycle-baresteel-stingray-chain.jpg\" style=\"height:440px; width:660px\" /></p>', 'product-image/Ducati motorcycles.jpg', 1, '2022-06-18 08:20:14', '2022-06-27 09:25:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `heading`, `description`, `link`, `link_name`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Harley', 'Slider upload testing', '#', 'Read More', 'uploads/Harley.jpg', 1, '2022-06-13 10:42:17', '2022-06-18 09:05:06'),
+(2, 'Bike', 'A collection of the top 52 Cool Bike wallpapers', '#', 'Read More', 'uploads/1655196601.jpg', 0, '2022-06-14 02:50:01', '2022-06-18 09:05:46'),
+(3, 'Woman', 'Woman resting on workout at the gym stock photo', '#', 'Read More', 'uploads/1655196794.jpg', 1, '2022-06-14 02:53:14', '2022-06-14 02:53:14'),
+(4, 'Ducati', 'Alien but gorgeous motorcycle design – you won’t believe it’s electric', '##', 'Read More', 'uploads/Ducati.jpg', 1, '2022-06-14 03:16:56', '2022-06-27 09:18:26'),
+(5, 'bruce', 'bruce-dixon-FyMj92RdUok-unsplash', '#', 'Read More', 'uploads/1655258328.jpg', 0, '2022-06-14 19:58:48', '2022-06-27 09:18:16'),
+(6, 'mike', 'mike-von-3MvlGhagq4E-unsplash', '#', 'Read More', 'uploads/1655259592.jpg', 0, '2022-06-14 20:19:56', '2022-06-18 09:04:49'),
+(7, 'Super Duke', 'A biker girl wearing black leather jacket sitting on her superbike outside a building.', '#', 'Ktm Super Duke', 'uploads/Super Duke.jpg', 1, '2022-06-14 20:32:11', '2022-06-18 20:28:37'),
+(8, 'Pk Bikes', 'Most Beautiful Super Bikes In The World Pk Bikes Collection 2019', '#', 'Read More', 'uploads/Slide.jpg', 1, '2022-06-18 06:52:44', '2022-06-27 09:14:53');
 
 -- --------------------------------------------------------
 
@@ -243,7 +277,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'u-Stora', 'ustora_shopping_mall@gmail.com', NULL, '$2y$10$WPnUGNBlMpC/vb/CnI.GoerLm7QBF/qG1PuUxXU4lW7lGGwDF1H3O', 'ARmJYLasZRXdeMIAZxViH5O9mVvqN8FbCE628plFNH3dpMpKj9qa1NF6bzV4', '2021-12-03 22:30:31', '2021-12-03 22:30:31');
+(1, 'u-Stora', 'ustora_shopping_mall@gmail.com', NULL, '$2y$10$WPnUGNBlMpC/vb/CnI.GoerLm7QBF/qG1PuUxXU4lW7lGGwDF1H3O', 'ARmJYLasZRXdeMIAZxViH5O9mVvqN8FbCE628plFNH3dpMpKj9qa1NF6bzV4', '2021-12-03 22:30:31', '2021-12-03 22:30:31'),
+(2, 'U-stora', 'ustora84@gmail.com', NULL, '$2y$10$E2l.dfYoUs1UE7srol.CuOAy1cLKARfXO1kWI4nD5VHtF2bRqjCue', NULL, '2022-06-13 01:20:45', '2022-06-13 01:20:45');
 
 --
 -- Indexes for dumped tables
@@ -301,6 +336,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -315,7 +356,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -327,7 +368,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -339,7 +380,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -351,13 +392,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

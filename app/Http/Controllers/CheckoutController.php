@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use Session;
 
 class CheckoutController extends Controller{
@@ -30,7 +30,7 @@ class CheckoutController extends Controller{
 
         Mail::send('front-end.mails.confirmation-mails', $data, function ($message) use ($data){
             $message->to($data['email']);
-            $message->subject('Confirmation mails');
+            $message->subject('Confirmation Mails');
         });
         return 'Success';
         return redirect('/checkout/shipping');

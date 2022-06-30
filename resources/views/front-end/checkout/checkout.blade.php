@@ -97,14 +97,14 @@
                     </div>
                     <div class="col-sm-4 registered-users"><strong>LogIn</strong>
                         <div class="content">
-                            <h3 class="text-danger text-center"> {!! Session::get('message') !!}</h3>
                             <p class="text-center">If you have an account with us, please log in.</p>
-                            {!! Form::open([''=>'', 'method'=>'POST']) !!}
+                            {!! Form::open(['route'=>'customer-login', 'method'=>'POST']) !!}
                                 <ul class="form-list">
                                     <li>
                                         {!! Form::label('email','Email',['class'=>'form-group']) !!}
                                         {!! Form::email('email',null,['class'=>'form-control','id'=>'email']) !!}
                                     </li>
+                                    <h4 class="text-center text-danger"> {{ Session::get('message') }}</h4>
                                     <li>
                                         {!! Form::label('pass','Password',['class'=>'form-group']) !!}
                                         {!! Form::password('password',['class'=>'form-control','id'=>'pass']) !!}

@@ -31,7 +31,7 @@
         [ App\Http\controllers\CheckoutController::class,'index'] )->name('checkout');
     Route::post('/customer/registration',
         [ App\Http\controllers\CheckoutController::class,'customerSignUP'] )->name('customer-sign-up');
-    Route::post('/checkout/custmer-login',
+    Route::post('/checkout/customer-login',
         [ App\Http\controllers\CheckoutController::class,'customerLogincheck'] )->name('customer-login');
     Route::get('/checkout/shipping',
         [ App\Http\controllers\CheckoutController::class,'shippingForm'] )->name('shipping-form');
@@ -39,6 +39,16 @@
         [ App\Http\controllers\CheckoutController::class,'saveShippingInfo'] )->name('new-shipping');
     Route::get('/payment',
         [ App\Http\controllers\CheckoutController::class,'paymentForm'] )->name('payment');
+    Route::post('/order',
+        [ App\Http\controllers\CheckoutController::class,'newOrder'] )->name('new-order');
+    Route::get('/complete/order',
+        [ App\Http\controllers\CheckoutController::class,'completeOrder'] )->name('complete-order');
+
+    //Top-header - Customer login or Logout route
+    Route::post('/customer-logout',
+        [ App\Http\controllers\CheckoutController::class,'customerLogout'] )->name('customer-logout');
+    Route::get('/new-customer-login',
+        [ App\Http\controllers\CheckoutController::class,'newCustomerLogin'] )->name('new-customer-login');
     
 
     //admin-controller 

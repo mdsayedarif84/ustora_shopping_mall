@@ -8,7 +8,13 @@
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         <li><a href="{{route('show-cart')}}"><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="{!! route('home') !!}"><i class="fa fa-user"></i> Login</a></li>
+                        @if(Session::get('customerId'))
+                            <li><a href="#" onclick="document.getElementById('customerLogout').submit(); "><i class="fa fa-user"></i> LogOut</a></li>
+                            {{ Form::open(['route'=>'customer-logout', 'method'=>'POST','id'=>'customerLogout']) }}
+                            {{ Form::close() }}
+                        @else
+                            <li><a href="{!! route('new-customer-login') !!}"><i class="fa fa-user"></i> Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -50,7 +56,7 @@
 
             <div class="col-sm-6">
                 <div class="shopping-item">
-                    <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                    <a href="{{route('show-cart')}}">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                 </div>
             </div>
         </div>

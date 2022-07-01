@@ -18,7 +18,7 @@
     <hr>
     <div class="product-content-right table-responsive">
         <div class="woocommerce">
-            <table cellspacing="0" class="shop_table cart">
+            <table cellspacing="0" class="shop_table cart well">
                 <thead class="dark-mode">
                     <tr>
                         <th class="product-name">SL No</th>
@@ -68,7 +68,7 @@
         </div>
         <div class="container">
             <div class="col-sm-3"></div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 well">
                 <table  class="table-responsive table table-striped table-bordered">
                     <tbody>
                         <tr class="cart-subtotal">
@@ -88,7 +88,14 @@
                             <td>
                                 <button title="checkout" type="button" class="button button-radius btn-danger btn-group">
                                     <i class="fa fa-hand-o-right" aria-hidden="true">
-                                        <a href="{!! route('checkout') !!}">Proceed To CheckOut</a>
+                                        @if(Session::get('customerId') && Session::get('shippingId'))
+                                            <a href="{!! route('payment') !!}">Proceed To CheckOut</a>
+                                        @elseif(Session::get('customerId'))
+                                            <a href="{!! route('shipping-form') !!}">Proceed To CheckOut</a>
+                                        @else
+                                            <a href="{!! route('checkout') !!}">Proceed To CheckOut</a>
+                                        @endif
+                                        <!-- <a href="{!! route('checkout') !!}">Proceed To CheckOut</a> -->
                                     </i>
                                 </button>
                             </td>

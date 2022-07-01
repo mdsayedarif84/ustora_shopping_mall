@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Shipping;
+use App\Models\Order;
+use App\Models\Payment;
+use App\Models\OrderDetail;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 use Illuminate\Http\Request;
 use Mail;
 use Session;
@@ -64,5 +69,47 @@ class CheckoutController extends Controller{
     }
     public function paymentForm(){
         return view('front-end.checkout.payment');
+    }
+    public function newOrder(Request $request){
+        $paymentType                = $request->payment_type;
+        if ($paymentType            ==  'Cash'){
+            $order = new Order();
+            $order->customer_id     = Session::get('customerId');
+            $order->shipping_id     = Session::get('shippingId');
+            $order->order_total     = Session::get('orderTotal');
+            $order->save();
+
+            $payment                = new Payment();
+            $payment->order_id      = $order->id;
+            $payment->payment_type  = $paymentType;
+            $payment->save();
+
+            $cartProducts = Cart::content();
+            foreach ($cartProducts as $cartProduct) {
+                $orderDetail = new OrderDetail();
+                $orderDetail->order_id          = $order->id;
+                $orderDetail->product_id        = $cartProduct->id;
+                $orderDetail->product_name      = $cartProduct->name;
+                $orderDetail->product_price     = $cartProduct->price;
+                $orderDetail->product_quantity  = $cartProduct->qty;
+                $orderDetail->save();
+            }
+            Cart::destroy();
+            return redirect('/complete/order');
+        }else if($paymentType       == 'Paypal'){
+        }else if ($paymentType      ==  'Bkash'){
+        }
+    }
+    public function completeOrder() {
+        return 'Your order is finally success';
+    }
+    //this function is headerLogout
+    public function customerLogout(){
+        Session::forget('customerId');
+        Session::forget('customerName');
+        return redirect('/');
+    }
+    public function newCustomerLogin(){
+        return view('front-end.customer.new-customer-login');
     }
 }

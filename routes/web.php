@@ -52,76 +52,88 @@
     
 
     //admin-controller 
+    Route::group(['middleware'=>'login.check'],function(){
+        Route::get('add-slider',
+            [ App\Http\controllers\SliderController::class,'index'] )->name('add-slider');
+        Route::post('store-slider',
+            [ App\Http\controllers\SliderController::class,'store'] )->name('store-slider');
+        Route::get('manage-slider',
+            [ App\Http\controllers\SliderController::class,'manageSlider'] )->name('manage-slider');
+        Route::get('/edit-slider/{id}',
+            [ App\Http\controllers\SliderController::class,'editSlider'] )->name('edit-slider');
+        Route::get('/slider/inactive/{id}',
+            [ App\Http\controllers\SliderController::class,'inactiveSlider'] )->name('inactive-slider');
+        Route::get('/slider/active/{id}',
+            [ App\Http\controllers\SliderController::class,'activeSlider'] )->name('active-slider');
+        Route::post('/update-slider',
+            [ App\Http\controllers\SliderController::class,'updateSlider'] )->name('update-slider');
 
-    Route::get('add-slider',
-        [ App\Http\controllers\SliderController::class,'index'] )->name('add-slider');
-    Route::post('store-slider',
-        [ App\Http\controllers\SliderController::class,'store'] )->name('store-slider');
-    Route::get('manage-slider',
-        [ App\Http\controllers\SliderController::class,'manageSlider'] )->name('manage-slider');
-    Route::get('/edit-slider/{id}',
-        [ App\Http\controllers\SliderController::class,'editSlider'] )->name('edit-slider');
-    Route::get('/slider/inactive/{id}',
-        [ App\Http\controllers\SliderController::class,'inactiveSlider'] )->name('inactive-slider');
-    Route::get('/slider/active/{id}',
-        [ App\Http\controllers\SliderController::class,'activeSlider'] )->name('active-slider');
-    Route::post('/update-slider',
-        [ App\Http\controllers\SliderController::class,'updateSlider'] )->name('update-slider');
 
+        //- Category
+        Route::get('/category/add-category',
+            [ App\Http\controllers\AdminCategoryController::class,'addCategory'] )->name('add-category');
+        Route::post('/save/new-category',
+            [ App\Http\controllers\AdminCategoryController::class,'saveCategoryInfo'] )->name('new-category');
+        Route::get('/category/manage-category',
+            [ App\Http\controllers\AdminCategoryController::class,'manageCategory'] )->name('manage-category');
+        Route::get('/category/unpublished/{id}',
+            [ App\Http\controllers\AdminCategoryController::class,'unpublishedCategory'] )->name('unpublished-category');
+        Route::get('/category/published/{id}',
+            [ App\Http\controllers\AdminCategoryController::class,'publishedCategory'] )->name('published-category');
+        Route::get('/category/edit-category/{id}',
+            [ App\Http\controllers\AdminCategoryController::class,'editCategory'] )->name('edit-category');
+        Route::post('/category/update-category',
+            [ App\Http\controllers\AdminCategoryController::class,'updateCategory'] )->name('update-category');
+        Route::get('/category/delete-category/{id}',
+            [ App\Http\controllers\AdminCategoryController::class,'deleteCategory'] )->name('delete-category');
 
-    //- Category
-    Route::get('/category/add-category',
-        [ App\Http\controllers\AdminCategoryController::class,'addCategory'] )->name('add-category');
-    Route::post('/save/new-category',
-        [ App\Http\controllers\AdminCategoryController::class,'saveCategoryInfo'] )->name('new-category');
-    Route::get('/category/manage-category',
-        [ App\Http\controllers\AdminCategoryController::class,'manageCategory'] )->name('manage-category');
-    Route::get('/category/unpublished/{id}',
-        [ App\Http\controllers\AdminCategoryController::class,'unpublishedCategory'] )->name('unpublished-category');
-    Route::get('/category/published/{id}',
-        [ App\Http\controllers\AdminCategoryController::class,'publishedCategory'] )->name('published-category');
-    Route::get('/category/edit-category/{id}',
-        [ App\Http\controllers\AdminCategoryController::class,'editCategory'] )->name('edit-category');
-    Route::post('/category/update-category',
-        [ App\Http\controllers\AdminCategoryController::class,'updateCategory'] )->name('update-category');
-    Route::get('/category/delete-category/{id}',
-        [ App\Http\controllers\AdminCategoryController::class,'deleteCategory'] )->name('delete-category');
+        // Brand Section
+        Route::get('/brand/add-brand',
+            [ App\Http\controllers\AdminBrandController::class,'addBrand'] )->name('add-brand');
+        Route::post('/brand/save-brand',
+            [ App\Http\controllers\AdminBrandController::class,'saveBrand'] )->name('save-brand');
+        Route::get('/brand/manage-brand',
+            [ App\Http\controllers\AdminBrandController::class,'manageBrand'] )->name('manage-brand');
+        Route::get('/brand/unpublished/{id}',
+            [ App\Http\controllers\AdminBrandController::class,'unpublishedBrand'] )->name('unpublished-brand');
+        Route::get('/brand/published/{id}',
+            [ App\Http\controllers\AdminBrandController::class,'publishedBrand'] )->name('published-brand');
+        Route::get('/brand/edit-brand/{id}',
+            [ App\Http\controllers\AdminBrandController::class,'editBrand'] )->name('edit-brand');
+        Route::post('/brand/update-brand',
+            [ App\Http\controllers\AdminBrandController::class,'updateBrand'] )->name('update-brand');
+        Route::get('/brand/delete-brand/{id}',
+            [ App\Http\controllers\AdminBrandController::class,'deleteBrand'] )->name('delete-brand');
 
-    // Brand Section
-    Route::get('/brand/add-brand',
-        [ App\Http\controllers\AdminBrandController::class,'addBrand'] )->name('add-brand');
-    Route::post('/brand/save-brand',
-        [ App\Http\controllers\AdminBrandController::class,'saveBrand'] )->name('save-brand');
-    Route::get('/brand/manage-brand',
-        [ App\Http\controllers\AdminBrandController::class,'manageBrand'] )->name('manage-brand');
-    Route::get('/brand/unpublished/{id}',
-        [ App\Http\controllers\AdminBrandController::class,'unpublishedBrand'] )->name('unpublished-brand');
-    Route::get('/brand/published/{id}',
-        [ App\Http\controllers\AdminBrandController::class,'publishedBrand'] )->name('published-brand');
-    Route::get('/brand/edit-brand/{id}',
-        [ App\Http\controllers\AdminBrandController::class,'editBrand'] )->name('edit-brand');
-    Route::post('/brand/update-brand',
-        [ App\Http\controllers\AdminBrandController::class,'updateBrand'] )->name('update-brand');
-    Route::get('/brand/delete-brand/{id}',
-        [ App\Http\controllers\AdminBrandController::class,'deleteBrand'] )->name('delete-brand');
-
-    //product section
-    Route::get('/add/product',
-        [ App\Http\controllers\AdminProductController::class,'addProduct'] )->name('add-product');
-    Route::post('/save/product',
-        [ App\Http\controllers\AdminProductController::class,'saveProduct'] )->name('save-product');
-    Route::get('/product/manage',
-        [ App\Http\controllers\AdminProductController::class,'manageProduct'] )->name('manage-product');
-    Route::get('/product/unpublished/{id}',
-        [ App\Http\controllers\AdminProductController::class,'unpublishedProduct'] )->name('unpublished-product');
-    Route::get('/product/published/{id}',
-        [ App\Http\controllers\AdminProductController::class,'publishedProduct'] )->name('published-product');
-    Route::get('/product/edit/{id}',
-        [ App\Http\controllers\AdminProductController::class,'editProduct'] )->name('edit-product');
-    Route::post('/product/update',
-        [ App\Http\controllers\AdminProductController::class,'updateProduct'] )->name('update-product');
-    Route::get('/product/delete/{id}',
-        [ App\Http\controllers\AdminProductController::class,'deleteProduct'] )->name('delete-product');
+        //product section
+        Route::get('/add/product',
+            [ App\Http\controllers\AdminProductController::class,'addProduct'] )->name('add-product');
+        Route::post('/save/product',
+            [ App\Http\controllers\AdminProductController::class,'saveProduct'] )->name('save-product');
+        Route::get('/product/manage',
+            [ App\Http\controllers\AdminProductController::class,'manageProduct'] )->name('manage-product');
+        Route::get('/product/unpublished/{id}',
+            [ App\Http\controllers\AdminProductController::class,'unpublishedProduct'] )->name('unpublished-product');
+        Route::get('/product/published/{id}',
+            [ App\Http\controllers\AdminProductController::class,'publishedProduct'] )->name('published-product');
+        Route::get('/product/edit/{id}',
+            [ App\Http\controllers\AdminProductController::class,'editProduct'] )->name('edit-product');
+        Route::post('/product/update',
+            [ App\Http\controllers\AdminProductController::class,'updateProduct'] )->name('update-product');
+        Route::get('/product/delete/{id}',
+            [ App\Http\controllers\AdminProductController::class,'deleteProduct'] )->name('delete-product');
+        
+        //manage-order
+        Route::get('/manage/order',
+            [ App\Http\controllers\OrderController::class,'manageOrderInfo'] )->name('manage-order');
+        Route::get('/view-order-detail/{id}',
+            [ App\Http\controllers\OrderController::class,'viewOrderDetail'] )->name('view-order');
+        Route::get('/view-order-invoice/{id}',
+            [ App\Http\controllers\OrderController::class,'viewOrderInvoice'] )->name('view-order-invoice');
+        Route::get('/download-order-invoice/{id}',
+            [ App\Http\controllers\OrderController::class,'downloadOrderInvoice'] )->name('download-order-invoice');
+    });
+    
 
 
     Auth::routes();

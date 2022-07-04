@@ -38,7 +38,6 @@ class CheckoutController extends Controller{
             $message->to($data['email']);
             $message->subject('Confirmation Mails');
         });
-        return 'Success';
         return redirect('/checkout/shipping');
     }
     public function customerLogincheck(Request $request){

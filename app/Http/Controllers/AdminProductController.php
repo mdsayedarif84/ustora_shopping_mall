@@ -54,7 +54,7 @@ class AdminProductController extends Controller
         return redirect('/product/manage')->with('message', 'Product info Save Successfully');
     }
     public function manageProduct(){
-        $products           =   DB::table('products')
+        $products   =   DB::table('products')
                     ->join('categories', 'products.category_id','=','categories.id')
                     ->join('brands', 'products.brand_id','=','brands.id')
                     ->select('products.*', 'categories.category_name','brands.brand_name')

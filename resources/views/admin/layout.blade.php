@@ -21,6 +21,9 @@
         <link rel="stylesheet" href="{{ asset('admin/ckeditor/samples/css/samples.css') }}">
         <link rel="stylesheet" href="{{ asset('admin/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}">
         <!--ckeditor/ckeditor end -->
+        <!-- invoice -->
+        <!-- <link href="{{ asset('admin/invoice/css/invoice.css') }}" rel="stylesheet"> -->
+
     </head>
     <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -66,6 +69,7 @@
     <script src="{!! asset('admin/dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') !!}"></script>
     <!-- AdminLTE App -->
     <script src="{!! asset('admin/dashboard/dist/js/adminlte.js') !!}"></script>
+    <!-- invoice -->
 
 
     <!-- PAGE PLUGINS -->

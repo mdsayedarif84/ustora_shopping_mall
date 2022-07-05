@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Auth;
-class AdminLoginCheckMiddleware
-{
+use Illuminate\Support\Facades\Auth;
+class AdminLoginCheckMiddleware{
     /**
      * Handle an incoming request.
      *

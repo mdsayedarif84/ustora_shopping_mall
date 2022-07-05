@@ -49,7 +49,6 @@
         [ App\Http\controllers\CheckoutController::class,'customerLogout'] )->name('customer-logout');
     Route::get('/new-customer-login',
         [ App\Http\controllers\CheckoutController::class,'newCustomerLogin'] )->name('new-customer-login');
-    
 
     //admin-controller 
     Route::group(['middleware'=>'login.check'],function(){
@@ -67,7 +66,6 @@
             [ App\Http\controllers\SliderController::class,'activeSlider'] )->name('active-slider');
         Route::post('/update-slider',
             [ App\Http\controllers\SliderController::class,'updateSlider'] )->name('update-slider');
-
 
         //- Category
         Route::get('/category/add-category',
@@ -132,9 +130,11 @@
             [ App\Http\controllers\OrderController::class,'viewOrderInvoice'] )->name('view-order-invoice');
         Route::get('/download-order-invoice/{id}',
             [ App\Http\controllers\OrderController::class,'downloadOrderInvoice'] )->name('download-order-invoice');
+            Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
     });
+        
     
 
 
     Auth::routes();
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

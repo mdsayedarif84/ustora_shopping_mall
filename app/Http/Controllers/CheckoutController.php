@@ -111,4 +111,12 @@ class CheckoutController extends Controller{
     public function newCustomerLogin(){
         return view('front-end.customer.new-customer-login');
     }
+    public function ajaxEmailCheck($email){
+        $customer=   Customer::where('email',$email)->first();
+        if ($customer){
+            echo 'This Email Already exist.Try new email !';
+        }else{
+            echo 'This Email Available for you !';
+        }
+    }
 }

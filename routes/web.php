@@ -51,7 +51,8 @@
         [ App\Http\controllers\CheckoutController::class,'newCustomerLogin'] )->name('new-customer-login');
 
     //admin-controller 
-    Route::group(['middleware'=>'login.check'],function(){
+     Route::middleware(['login.check'])->group(function () {
+        //Route::group(['middleware'=>['login.check']], function(){
         Route::get('add-slider',
             [ App\Http\controllers\SliderController::class,'index'] )->name('add-slider');
         Route::post('store-slider',
@@ -130,11 +131,12 @@
             [ App\Http\controllers\OrderController::class,'viewOrderInvoice'] )->name('view-order-invoice');
         Route::get('/download-order-invoice/{id}',
             [ App\Http\controllers\OrderController::class,'downloadOrderInvoice'] )->name('download-order-invoice');
-            Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     });
         
-    
-
-
+    //ajax email check controller
+    Route::get('/ajax-email-check/{email}',
+        [ App\Http\controllers\CheckoutController::class,'ajaxEmailCheck'] )->name('ajax-email-check');
+   
     Auth::routes();

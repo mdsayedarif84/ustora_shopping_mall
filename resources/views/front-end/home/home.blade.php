@@ -10,18 +10,18 @@
                 <ul class="" id="bxslider-home4">
                     @php $i = 1; @endphp
                     @foreach( $sliders as $slider )
-                    <li class="carousel-item {{ $i == '1' ? 'active':'' }} ">
-                    @php $i++; @endphp
-                        <img src="{!! asset($slider->image) !!}" alt="Slide" style="height: 500px;width: 1100px;">
-                        <div class="caption-group">
-                            <h2 class="caption title">
-                                iPhone <span class="primary">{{$slider->link}} <strong>{{$slider->heading}}</strong></span>
-                            </h2>
-                            <h4 class="caption subtitle"></h4>
-                            <a class="caption button-radius" href="#">
-                                <span class="icon"></span>{{$slider->link_name}}</a>
-                        </div>
-                    </li>
+                        <li class="carousel-item {{ $i == '1' ? 'active':'' }} ">
+                        @php $i++; @endphp
+                            <img src="{!! asset($slider->image) !!}" alt="Slide" style="height: 500px;width: 1100px;">
+                            <div class="caption-group">
+                                <h2 class="caption title">
+                                    iPhone <span class="primary">{{$slider->link}} <strong>{{$slider->heading}}</strong></span>
+                                </h2>
+                                <h4 class="caption subtitle"></h4>
+                                <a class="caption button-radius" href="#">
+                                    <span class="icon"></span>{{$slider->link_name}}</a>
+                            </div>
+                        </li>
                     @endforeach
                     
                 </ul>
@@ -71,7 +71,7 @@
                         <div class="latest-product">
                             <h2 class="section-title">Latest Products</h2>
                             <div class="product-carousel">
-                                {{--                        my-edit--}}
+                                {{-- my-edit--}}
                                 <div class="row">
                                     @foreach( $newProducts as $newProduct)
                                         <div class="col-md-4">
@@ -92,7 +92,7 @@
                                     @endforeach
 
                                 </div>
-                                {{--                        my-edit-end--}}
+                                {{-- my-edit-end--}}
                             </div>
                         </div>
                     </div>
@@ -110,48 +110,22 @@
                         <div class="single-product-widget">
                             <h2 class="product-wid-title">Top Sellers</h2>
                             <a href="" class="wid-view-more">View All</a>
-                            <div class="single-wid-product">
-                                <a href="single-product.html"><img src="{!! asset('/') !!}/front-end/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                                <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                                <div class="product-wid-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                            @foreach($totalProductNames as $totalProductName )
+                                <div class="single-wid-product">
+                                    <a href="single-product.html"><img src=" " alt="" class="product-thumb"></a>
+                                    <h2><a href="single-product.html">{{ $totalProductName->product_name }}</a></h2>
+                                    <div class="product-wid-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product-wid-price">
+                                        <ins> Tk. {{ $totalProductName->product_price }}</ins> <del>$425.00</del>
+                                    </div>
                                 </div>
-                                <div class="product-wid-price">
-                                    <ins>$400.00</ins> <del>$425.00</del>
-                                </div>
-                            </div>
-                            <div class="single-wid-product">
-                                <a href="single-product.html"><img src="{!! asset('/') !!}/front-end/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                                <h2><a href="single-product.html">Apple new mac book 2015</a></h2>
-                                <div class="product-wid-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-wid-price">
-                                    <ins>$400.00</ins> <del>$425.00</del>
-                                </div>
-                            </div>
-                            <div class="single-wid-product">
-                                <a href="single-product.html"><img src="{!! asset('/') !!}/front-end/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                                <h2><a href="single-product.html">Apple new i phone 6</a></h2>
-                                <div class="product-wid-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product-wid-price">
-                                    <ins>$400.00</ins> <del>$425.00</del>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-md-4">

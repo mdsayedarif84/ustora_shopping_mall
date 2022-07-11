@@ -27,26 +27,34 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('/') !!}/admin/login/css/main.css">
     <!--===============================================================================================-->
 </head>
+<style>
+        .showPassword {
+            position: relative;
+        }
+        .showPassword i{
+            position: absolute;
+            margin-left: 450px;
+            bottom: 43px;
+            cursor: pointer;
+        }
+    </style>
 <body>
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
     <div class="container">
-        <a href="" class="navbar-brand">LOGO</a>
+        <a href="" class="navbar-brand">{{ config('app.name') }}</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="myMenu">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="" class="nav-link" data-toggle="modal" data-target="#login">
-                        <span class="glyphicon glyphicon-search"></span>Login</a>
-                </li>
                 <li class="nav-item"><a href="{!! route('register') !!}" class="nav-link" >Register</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="limiter">
-    <div class="container-login100 " style="background-image: url('{!! asset('/') !!}admin/login/images/bg-01.jpg');">
+    <div class="container-login100 " style="background-image: url('{!! asset('/admin/login/images/bg-01.jpg') !!}');">
         <div class="wrap-login100 p-t-40 p-b-50 dark-mode" style="width: 595px; ">
 				<span class="login100-form-title p-b-41">
 					Account Login
@@ -62,8 +70,9 @@
                     @enderror
                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100  @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                <div class="wrap-input100 validate-input showPassword" data-validate="Enter password">
+                    <input id="password" class="input100  @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                    <i class="fas fa-eye-slash text-danger " id="togglePassword">ShowPass</i>
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -119,6 +128,15 @@
 <script src="{!! asset('/') !!}/admin/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="{!! asset('/') !!}/admin/login/js/main.js"></script>
+<script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        $("#togglePassword").toggleClass("fa-eye");
+        });
+    </script>
 
 </body>
 </html>

@@ -62,12 +62,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    public function ajaxEmailCheck($email){
+        $customer=   User::where('email',$email)->first();
+        if ($customer){
+            echo 'This Email Already exist.Try new email !';
+        }else{
+            echo 'This Email Available for you !';
+        }
     }
 }

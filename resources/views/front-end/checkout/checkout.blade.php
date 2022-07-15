@@ -48,7 +48,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="email" class="form-group">Email</label> --<span class="text-danger" id="res"></span>
+                                                            <label for="email" class="form-group">Email</label> --<span  id="res"></span>
                                                             {!! Form::email('email',null,['class'=>'form-control','id'=>'email']) !!}
                                                         </div>
                                                     </div>
@@ -82,7 +82,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-lg-2"></div>
                                                     <div class="text-center col-md-12">
-                                                        <button type="submit" id="regBtn" class="btn btn-primary">
+                                                        <button type="submit" id="regBtn" name="btn" class="btn btn-danger">
                                                             <i class="fa fa-user-md"></i> Register
                                                         </button>
                                                     </div>
@@ -99,22 +99,22 @@
                         <p class="text-center">If you have an account with us, please log in.</p>
                         <div class="content">
                             {!! Form::open(['route'=>'customer-login', 'method'=>'POST']) !!}
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                {!! Form::label('email','Email',['class'=>'form-group']) !!}
-                                {!! Form::email('email',null,['class'=>'form-control','id'=>'email']) !!}
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    {!! Form::label('email2','Email',['class'=>'form-group']) !!}
+                                    {!! Form::email('email',null,['class'=>'form-control','id'=>'email2']) !!}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                {!! Form::label('pass','Password',['class'=>'form-group']) !!}
-                                {!! Form::password('password',['class'=>'form-control','id'=>'pass']) !!}
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                    {!! Form::label('pass','Password',['class'=>'form-group']) !!}
+                                    {!! Form::password('password',['class'=>'form-control','id'=>'pass']) !!}
+                                    </div>
                                 </div>
-                            </div>
-                            
+                                
                                 <div class="buttons-set">
                                     <button  type="submit" class="button login btn-sm"><span>Login</span></button>
-                                    <a class="forgot-word" href="#">Forgot Your Password?</a>
+                                        <a class="forgot-word" href="#">Forgot Your Password?</a>
                                 </div>
                             {!! Form::close() !!}
                         </div>
@@ -147,10 +147,13 @@
             xmlHttp.onreadystatechange  =   function (){
                 if (xmlHttp.readyState == 4 && xmlHttp.status  ==  200){
                     document.getElementById('res').innerHTML   =   xmlHttp.responseText;
-                    if (xmlHttp.responseText == 'This Email Already exist.Try new email'){
-                        document.getElementById('regBtn').disabled  =    true;
-                    }else {
-                        document.getElementById('regBtn').disabled  =    false;
+                    if(xmlHttp.responseText == 'This Email Already exist'){
+                        document.getElementById('res').style.color = 'red';
+                        document.getElementById('regBtn').disabled  = true;
+                    }else{ 
+                        document.getElementById('res').style.color = 'green';
+                        document.getElementById('regBtn').disabled  = false;
+                       
                     }
                 }
             }

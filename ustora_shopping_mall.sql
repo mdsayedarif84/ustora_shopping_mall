@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2022 at 03:12 AM
+-- Generation Time: Jul 15, 2022 at 06:47 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -108,7 +108,9 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `address`, `created_at`, `updated_at`) VALUES
 (29, 'Fs', 'moon', 'mdsayedarif84@gmail.com', '$2y$10$jasm.4DSOtYdETvXgY9/RumfQzvJSdodPapSD5vVOrCgZCD7wpiCe', '0186655399', 'Noakhali', '2022-07-01 05:50:54', '2022-07-01 05:50:54'),
-(30, 'Fabel', 'Islam', 'asulymoon84@gmail.com', '$2y$10$Imk7sKWbR9Rz.CZNNlQjquVI5AEaUFp8ITgs.Fg5NebogpFlMevGK', '018665539', 'Noakhali', '2022-07-01 10:30:25', '2022-07-01 10:30:25');
+(30, 'Fabel', 'Islam', 'asulymoon84@gmail.com', '$2y$10$Imk7sKWbR9Rz.CZNNlQjquVI5AEaUFp8ITgs.Fg5NebogpFlMevGK', '018665539', 'Noakhali', '2022-07-01 10:30:25', '2022-07-01 10:30:25'),
+(31, 'Kamal', 'Uddin', 'kamal0646@gmail.com', '$2y$10$frKbzAza2FOrk1UGjPg1fOv2MsLnBEqiZGdJDkoZq7BN.Uu.72GYa', '01866553100', 'Cumilla', '2022-07-08 22:55:00', '2022-07-08 22:55:00'),
+(32, 'Karim', 'Uddin', 'ustora84@gmail.com', '$2y$10$xcUBXcUPHpMckWafsBzXouWt7/AXXzEoxr5WeFw6pkJ86QYwI49wC', '0186655377', 'Noakhali', '2022-07-14 09:27:46', '2022-07-14 09:27:46');
 
 -- --------------------------------------------------------
 
@@ -182,7 +184,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `shipping_id`, `order_total`, `order_
 (2, 26, 2, 950000.00, 'Pending', '2022-06-30 23:03:22', '2022-06-30 23:03:22'),
 (3, 29, 3, 5306000.00, 'Pending', '2022-07-01 05:51:54', '2022-07-01 05:51:54'),
 (4, 29, 3, 4000.00, 'Pending', '2022-07-01 10:28:34', '2022-07-01 10:28:34'),
-(5, 30, 4, 1750000.00, 'Pending', '2022-07-01 10:32:38', '2022-07-01 10:32:38');
+(5, 30, 4, 1750000.00, 'Pending', '2022-07-01 10:32:38', '2022-07-01 10:32:38'),
+(6, 31, 5, 500000.00, 'Pending', '2022-07-08 22:55:36', '2022-07-08 22:55:36'),
+(7, 31, 6, 3000.00, 'Pending', '2022-07-14 09:28:45', '2022-07-14 09:28:45');
 
 -- --------------------------------------------------------
 
@@ -211,7 +215,9 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `product_name`, `pr
 (3, 3, 10, 'CoupleT-shirt', 1000.00, 6, '2022-07-01 05:51:55', '2022-07-01 05:51:55'),
 (4, 3, 9, 'vector', 530000.00, 10, '2022-07-01 05:51:55', '2022-07-01 05:51:55'),
 (5, 4, 10, 'CoupleT-shirt', 1000.00, 4, '2022-07-01 10:28:35', '2022-07-01 10:28:35'),
-(6, 5, 5, 'ASUS', 250000.00, 7, '2022-07-01 10:32:38', '2022-07-01 10:32:38');
+(6, 5, 5, 'ASUS', 250000.00, 7, '2022-07-01 10:32:38', '2022-07-01 10:32:38'),
+(7, 6, 6, 'Tvs Apache', 250000.00, 2, '2022-07-08 22:55:36', '2022-07-08 22:55:36'),
+(8, 7, 10, 'CoupleT-shirt', 1000.00, 3, '2022-07-14 09:28:45', '2022-07-14 09:28:45');
 
 -- --------------------------------------------------------
 
@@ -249,7 +255,9 @@ INSERT INTO `payments` (`id`, `order_id`, `payment_type`, `payment_status`, `cre
 (2, 2, 'Cash', 'Pending', '2022-06-30 23:03:22', '2022-06-30 23:03:22'),
 (3, 3, 'Cash', 'Pending', '2022-07-01 05:51:55', '2022-07-01 05:51:55'),
 (4, 4, 'Cash', 'Pending', '2022-07-01 10:28:34', '2022-07-01 10:28:34'),
-(5, 5, 'Cash', 'Pending', '2022-07-01 10:32:38', '2022-07-01 10:32:38');
+(5, 5, 'Cash', 'Pending', '2022-07-01 10:32:38', '2022-07-01 10:32:38'),
+(6, 6, 'Cash', 'Pending', '2022-07-08 22:55:36', '2022-07-08 22:55:36'),
+(7, 7, 'Cash', 'Pending', '2022-07-14 09:28:45', '2022-07-14 09:28:45');
 
 -- --------------------------------------------------------
 
@@ -333,7 +341,9 @@ INSERT INTO `shippings` (`id`, `full_name`, `email`, `phone_number`, `address`, 
 (1, 'Fabin Islam', 'asulymoon84@gmail.com', '05258588', 'Dhaka', '2022-06-30 11:07:23', '2022-06-30 11:07:23'),
 (2, 'Fabin Islam', 'mdsayedarif84@gmail.com', '0186655398', 'Dhaka', '2022-06-30 20:07:23', '2022-06-30 20:07:23'),
 (3, 'Fs moon', 'mdsayedarif84@gmail.com', '0186655399', 'Noakhali', '2022-07-01 05:51:49', '2022-07-01 05:51:49'),
-(4, 'Fabel Islam Fs', 'asulymoon84@gmail.com', '018665539', 'Noakhali', '2022-07-01 10:32:34', '2022-07-01 10:32:34');
+(4, 'Fabel Islam Fs', 'asulymoon84@gmail.com', '018665539', 'Noakhali', '2022-07-01 10:32:34', '2022-07-01 10:32:34'),
+(5, 'Kamal Uddin', 'kamal0646@gmail.com', '01866553100', 'Cumilla', '2022-07-08 22:55:30', '2022-07-08 22:55:30'),
+(6, 'Kamal Uddin', 'kamal0646@gmail.com', '01866553100', 'Cumilla', '2022-07-14 09:28:41', '2022-07-14 09:28:41');
 
 -- --------------------------------------------------------
 
@@ -360,8 +370,8 @@ CREATE TABLE `sliders` (
 INSERT INTO `sliders` (`id`, `heading`, `description`, `link`, `link_name`, `image`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Harley', 'Slider upload testing', '#', 'Read More', 'uploads/Harley.jpg', 1, '2022-06-13 10:42:17', '2022-06-18 09:05:06'),
 (2, 'Bike', 'A collection of the top 52 Cool Bike wallpapers', '#', 'Read More', 'uploads/1655196601.jpg', 0, '2022-06-14 02:50:01', '2022-06-18 09:05:46'),
-(3, 'Woman', 'Woman resting on workout at the gym stock photo', '#', 'Read More', 'uploads/1655196794.jpg', 1, '2022-06-14 02:53:14', '2022-06-14 02:53:14'),
-(4, 'Ducati', 'Alien but gorgeous motorcycle design – you won’t believe it’s electric', '##', 'Read More', 'uploads/Ducati.jpg', 1, '2022-06-14 03:16:56', '2022-06-27 09:18:26'),
+(3, 'Woman', 'Woman resting on workout at the gym stock photo', '#', 'Read More', 'uploads/Woman.jpg', 1, '2022-06-14 02:53:14', '2022-07-05 22:43:19'),
+(4, 'Ducati', 'Alien but gorgeous motorcycle design – you won’t believe it’s electric', '#', 'Read More', 'uploads/Ducati.jpg', 1, '2022-06-14 03:16:56', '2022-07-07 04:45:19'),
 (5, 'bruce', 'bruce-dixon-FyMj92RdUok-unsplash', '#', 'Read More', 'uploads/1655258328.jpg', 0, '2022-06-14 19:58:48', '2022-06-27 09:18:16'),
 (6, 'mike', 'mike-von-3MvlGhagq4E-unsplash', '#', 'Read More', 'uploads/1655259592.jpg', 0, '2022-06-14 20:19:56', '2022-06-18 09:04:49'),
 (7, 'Super Duke', 'A biker girl wearing black leather jacket sitting on her superbike outside a building.', '#', 'Ktm Super Duke', 'uploads/Super Duke.jpg', 1, '2022-06-14 20:32:11', '2022-06-18 20:28:37'),
@@ -390,7 +400,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'u-Stora', 'ustora_shopping_mall@gmail.com', NULL, '$2y$10$WPnUGNBlMpC/vb/CnI.GoerLm7QBF/qG1PuUxXU4lW7lGGwDF1H3O', 'ARmJYLasZRXdeMIAZxViH5O9mVvqN8FbCE628plFNH3dpMpKj9qa1NF6bzV4', '2021-12-03 22:30:31', '2021-12-03 22:30:31'),
-(2, 'U-stora', 'ustora84@gmail.com', NULL, '$2y$10$E2l.dfYoUs1UE7srol.CuOAy1cLKARfXO1kWI4nD5VHtF2bRqjCue', NULL, '2022-06-13 01:20:45', '2022-06-13 01:20:45');
+(2, 'U-stora', 'ustora84@gmail.com', NULL, '$2y$10$E2l.dfYoUs1UE7srol.CuOAy1cLKARfXO1kWI4nD5VHtF2bRqjCue', NULL, '2022-06-13 01:20:45', '2022-06-13 01:20:45'),
+(3, 'MD Sala Uddin', 'mdsalauddin84@gmail.com', NULL, '$2y$10$KVFoTcJhWoTz.WyiQqQys.DMMGPbxC5KbNDeAjCkBP6xetBBy1o46', NULL, '2022-07-07 05:10:56', '2022-07-07 05:10:56');
 
 --
 -- Indexes for dumped tables
@@ -504,7 +515,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -522,19 +533,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -552,7 +563,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `shippings`
 --
 ALTER TABLE `shippings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -564,7 +575,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

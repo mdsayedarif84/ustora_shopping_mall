@@ -32,7 +32,7 @@
                     <h2 class="footer-wid-title">Brands</h2>
                     <ul>
                         @foreach($brands as $brand)
-                        <li><a href="{!! route('brand-product',['id'=>$brand->id,'name'=>$brand->brand_name]) !!}">{!! $brand->brand_name !!}</a></li>
+                            <li><a href="{!! route('brand-product',['id'=>$brand->id,'name'=>$brand->brand_name]) !!}">{!! $brand->brand_name !!}</a></li>
                         @endforeach
                     </ul>
                 </div>

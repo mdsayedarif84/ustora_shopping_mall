@@ -114,9 +114,9 @@ class CheckoutController extends Controller{
     public function ajaxEmailCheck($email){
         $customer=   Customer::where('email',$email)->first();
         if ($customer){
-            echo 'This Email Already exist.Try new email !';
+            echo 'This Email Already exist';
         }else{
-            echo 'This Email Available for you !';
+            echo 'This Email Available for you ';
         }
     }
 }

@@ -21,7 +21,6 @@
                                         ->orderBy('id','DESC')
                                         ->take(3)
                                         ->get();
-
             
             $totalProductNames = DB::table('order_details')
                         ->select('order_details.product_name','order_details.product_price',DB::raw('count(product_name) as count','product_name','product_price'))

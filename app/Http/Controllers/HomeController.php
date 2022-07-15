@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\OrderDetail;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +25,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        $totslUsers     =   DB::table('users')->count('id');
+        // $totalUsers     =   DB::table('users')->count('id');
+        $totals = [
+            'totalUsers' => DB::table('users')->count('id'),
+            'totalCustomers' => DB::table('customers')->count('id'),
+        ];
         $orderDetails   =   DB::table('order_details')
                                 ->join('orders', 'order_details.order_id','=','orders.id')
                                 ->join('products', 'order_details.product_id','=','products.id')
@@ -34,8 +40,11 @@ class HomeController extends Controller
                                 ->orderBy('id','DESC')
                                 ->take(2)
                                 ->get();
-            //return $recentProduct;
+        $totalSells     =   DB::table('order_details',)
+                                ->select('order_details.*')
+                                ->get();
+                    // return $totalSells;
                         
-        return view('admin.home.home',compact('totslUsers','orderDetails','recentProducts'));
+        return view('admin.home.home',compact( 'totals','orderDetails','recentProducts','totalSells' ));
     }
 }

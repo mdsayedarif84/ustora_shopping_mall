@@ -73,7 +73,7 @@
 							<td><span >Experience Review</span></td>
 							<td>Tk <span >{!! $orderDetail->product_price !!}</span></td>
 							<td><span >{!! $orderDetail->product_quantity !!}</span></td>
-							<td><span>Tk </span><span>{!! $total = $orderDetail->product_price*$orderDetail->product_quantity!!}</span></td>
+							<td><span>Tk </span><span>{!! $total = $orderDetail->product_price*$orderDetail->product_quantity !!}</span></td>
                          </tr>
                     @php($sum = $sum+$total)
                     @endforeach

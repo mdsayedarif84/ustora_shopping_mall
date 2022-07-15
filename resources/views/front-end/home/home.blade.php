@@ -15,7 +15,7 @@
                             <img src="{!! asset($slider->image) !!}" alt="Slide" style="height: 500px;width: 1100px;">
                             <div class="caption-group">
                                 <h2 class="caption title">
-                                    iPhone <span class="primary">{{$slider->link}} <strong>{{$slider->heading}}</strong></span>
+                                     <span class="primary">{{$slider->link}} <strong>{{$slider->heading}}</strong></span>
                                 </h2>
                                 <h4 class="caption subtitle"></h4>
                                 <a class="caption button-radius" href="#">
@@ -194,7 +194,7 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                     <div class="product-wid-price">
-                                        <ins>$400.00</ins> <del>$425.00</del>
+                                        <ins>{{ $slider->link_name }}</ins> 
                                     </div>
                                 </div>
                             @endforeach

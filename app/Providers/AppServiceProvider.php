@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('front-end.includes.footer',function ($view){
             $view->with('brands', Brand::where('publication_status',1)
                 ->orderBy('id','DESC')
-                ->take(10)
+                ->take(5)
                 ->get());
         });
     }

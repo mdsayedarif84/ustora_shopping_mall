@@ -112,7 +112,7 @@
                             <a href="" class="wid-view-more">View All</a>
                             @foreach($totalProductNames as $totalProductName )
                                 <div class="single-wid-product">
-                                    <a href="single-product.html"><img src=" " alt="" class="product-thumb"></a>
+                                    <a href="single-product.html"><img src=" {{ asset($totalProductName->product_image) }}" alt="" class="product-thumb"></a>
                                     <h2><a href="single-product.html">{{ $totalProductName->product_name }}</a></h2>
                                     <div class="product-wid-rating">
                                         <i class="fa fa-star"></i>

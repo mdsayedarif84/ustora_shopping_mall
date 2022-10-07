@@ -30,9 +30,7 @@
                         ->orderBy('count','desc')
                         ->take(3)
                         ->get();
-            
 
-            
 
             // $productNames = DB::table('order_details')
             // ->select('order_details.product_name',

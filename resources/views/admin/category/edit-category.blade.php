@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    AddCategory
+    EditCategory
 @endsection
 @section('body')
     <div class="content-wrapper dark-mode">
